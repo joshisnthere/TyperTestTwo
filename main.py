@@ -33,3 +33,13 @@ class TypingTestApp(ctk.CTk):
         self.title("Typing Speed Test")
         self.geometry("700x560")
         self.configure(fg_color=BG)
+
+        self.passage = stats.random_passage(PASSAGES)
+        self.start_time = None
+
+        ctk.CTkLabel(self, text="Type this:", text_color=ACCENT).pack(anchor="w", padx=24, pady=(24, 4))
+        self.passage_label = ctk.CTkLabel(
+            self, text=self.passage, wraplength=620, justify="left",
+            font=ctk.CTkFont(size=16),
+        )
+        self.passage_label.pack(anchor="w", padx=24)
