@@ -25,3 +25,11 @@ PASSAGES = [
     "A small consistent habit beats a big burst of effort every time.",
     "Most bugs are not mysterious, they are just unexamined assumptions.",
 ]
+
+
+class TypingTestApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("Typing Speed Test")
+        self.geometry("700x560")
+        self.configure(fg_color=BG)
