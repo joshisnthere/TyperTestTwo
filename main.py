@@ -43,3 +43,11 @@ class TypingTestApp(ctk.CTk):
             font=ctk.CTkFont(size=16),
         )
         self.passage_label.pack(anchor="w", padx=24)
+
+        self.input_box = ctk.CTkTextbox(self, fg_color=PANEL, height=140, width=640)
+        self.input_box.pack(padx=24, pady=20)
+        self.input_box.bind("<KeyRelease>", self._on_key)
+
+        self.result_var = ctk.StringVar(value="")
+        ctk.CTkLabel(self, textvariable=self.result_var, text_color=ACCENT,
+                     font=ctk.CTkFont(size=18, weight="bold")).pack(pady=(0, 10))
