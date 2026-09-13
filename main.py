@@ -64,3 +64,17 @@ class TypingTestApp(ctk.CTk):
         self.history_box.pack(padx=24)
         self.history_box.configure(state="disabled")
         self._render_history()
+
+    def _on_key(self, event):
+        if self.start_time is None:
+            self.start_time = time.time()
+
+    def _finish(self):
+        if self.start_time is None:
+            return
+        typed = self.input_box.get("1.0", "end-1c")
+        elapsed = time.time() - self.start_time
+        wpm, accuracy = stats.score(self.passage, typed, elapsed)
+        self.result_var.set(f"{wpm} WPM  ·  {accuracy}% accurate")
+        stats.save_result(wpm, accuracy)
+        self._render_history()
