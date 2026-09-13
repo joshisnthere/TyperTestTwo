@@ -58,3 +58,9 @@ class TypingTestApp(ctk.CTk):
                       command=self._finish).pack(side="left", padx=6)
         ctk.CTkButton(button_row, text="New passage", fg_color="#2a2a30",
                       command=self._reset).pack(side="left", padx=6)
+
+        ctk.CTkLabel(self, text="History", text_color="#8a8a8a").pack(anchor="w", padx=24, pady=(20, 4))
+        self.history_box = ctk.CTkTextbox(self, fg_color=PANEL, height=100, width=640)
+        self.history_box.pack(padx=24)
+        self.history_box.configure(state="disabled")
+        self._render_history()
