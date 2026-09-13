@@ -51,3 +51,10 @@ class TypingTestApp(ctk.CTk):
         self.result_var = ctk.StringVar(value="")
         ctk.CTkLabel(self, textvariable=self.result_var, text_color=ACCENT,
                      font=ctk.CTkFont(size=18, weight="bold")).pack(pady=(0, 10))
+
+        button_row = ctk.CTkFrame(self, fg_color=BG)
+        button_row.pack()
+        ctk.CTkButton(button_row, text="Finish", fg_color="#2a2a30",
+                      command=self._finish).pack(side="left", padx=6)
+        ctk.CTkButton(button_row, text="New passage", fg_color="#2a2a30",
+                      command=self._reset).pack(side="left", padx=6)
