@@ -85,3 +85,10 @@ class TypingTestApp(ctk.CTk):
         self.input_box.delete("1.0", "end")
         self.start_time = None
         self.result_var.set("")
+
+    def _render_history(self):
+        self.history_box.configure(state="normal")
+        self.history_box.delete("1.0", "end")
+        for row in stats.load_history()[-10:][::-1]:
+            self.history_box.insert("end", f"{row['when']}  {row['wpm']} WPM  {row['accuracy']}%\n")
+        self.history_box.configure(state="disabled")
