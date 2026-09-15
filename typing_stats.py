@@ -7,3 +7,10 @@ import datetime
 import json
 import os
 import random
+
+HISTORY_PATH = os.path.join(os.path.dirname(__file__), "history.json")
+
+
+def random_passage(passages):
+    return random.choice(passages)
+
