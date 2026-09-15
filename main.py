@@ -78,3 +78,10 @@ class TypingTestApp(ctk.CTk):
         self.result_var.set(f"{wpm} WPM  ·  {accuracy}% accurate")
         stats.save_result(wpm, accuracy)
         self._render_history()
+
+    def _reset(self):
+        self.passage = stats.random_passage(PASSAGES)
+        self.passage_label.configure(text=self.passage)
+        self.input_box.delete("1.0", "end")
+        self.start_time = None
+        self.result_var.set("")
