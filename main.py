@@ -92,3 +92,8 @@ class TypingTestApp(ctk.CTk):
         for row in stats.load_history()[-10:][::-1]:
             self.history_box.insert("end", f"{row['when']}  {row['wpm']} WPM  {row['accuracy']}%\n")
         self.history_box.configure(state="disabled")
+
+
+if __name__ == "__main__":
+    app = TypingTestApp()
+    app.mainloop()
