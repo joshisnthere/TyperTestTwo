@@ -31,3 +31,14 @@ def load_history():
         with open(HISTORY_PATH) as f:
             return json.load(f)
     return []
+
+
+def save_result(wpm, accuracy):
+    history = load_history()
+    history.append({
+        "when": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "wpm": wpm,
+        "accuracy": accuracy,
+    })
+    with open(HISTORY_PATH, "w") as f:
+        json.dump(history, f, indent=2)
