@@ -19,3 +19,9 @@ def score(passage, typed, elapsed_seconds):
     words = max(1, len(passage.split()))
     minutes = max(elapsed_seconds / 60, 1 / 60)
     wpm = round(words / minutes)
+
+    correct = sum(1 for a, b in zip(passage, typed) if a == b)
+    accuracy = round(100 * correct / max(1, len(passage)))
+
+    return wpm, accuracy
+
