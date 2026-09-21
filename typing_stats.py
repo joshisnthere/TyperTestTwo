@@ -25,3 +25,9 @@ def score(passage, typed, elapsed_seconds):
 
     return wpm, accuracy
 
+
+def load_history():
+    if os.path.exists(HISTORY_PATH):
+        with open(HISTORY_PATH) as f:
+            return json.load(f)
+    return []
